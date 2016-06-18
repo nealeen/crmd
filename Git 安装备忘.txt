@@ -10,3 +10,4 @@ $ssh-add /f/sshkey/fw_rsa
 $ssh-agent bash --login -i
 再执行ssh-add
 6、再验证ssh
+7、
