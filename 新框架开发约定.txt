@@ -1,4 +1,8 @@
+<<<<<<< HEAD:新框架开发约定.txt
 ﻿一、MVC中的Rest 规则
+=======
+一、MVC中的Rest 规则
+>>>>>>> d1a9434e5a2be71db54b2f543a417e2f92457fc9:新框架开发约定.htm
 1.基础数据相关
 以教师为例
 /basedata/teacher
@@ -18,8 +22,6 @@ return "/basedata/dept/deptIndex.ftl";
 
 二. 数据提交
 数据提交都采用ajax形式，基础代码如下
-
-
 
 三. Json对象
 java端
