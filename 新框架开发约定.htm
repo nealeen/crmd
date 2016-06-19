@@ -1,0 +1,47 @@
+一、MVC中的Rest 规则
+1.基础数据相关
+以教师为例
+/basedata/teacher
+
+/basedata/teacher/add
+/basedata/teacher/{id}/detail
+
+/basedata/unit/{unitId}/teachers
+/basedata/unit/{unitId}/depts
+
+/basedata/teacher/update
+/basedata/teacher/save
+
+2. 返回页面
+返回的地址，包含页面后缀，如
+return "/basedata/dept/deptIndex.ftl";
+
+二. 数据提交
+数据提交都采用ajax形式，基础代码如下
+
+
+
+三. Json对象
+java端
+统一用net.zdsoft.framework.entity下的Json、JsonArray（基于fastjson）
+Web端
+统一用JSON进行转换
+
+四.常量
+1. 所有系统用到的常量，都需要定义，不能直接写
+如dept.setIsDeleted(0)要改为 dept.setIsDeleted(Constant.IS_DELETED_FALSE);
+2. 和entity相关的常量定义在相关的entity对象中
+3. 通用的常量，定义在Constant类中
+
+五、文件命名
+1. 页面采用驼峰命名规则，如：deptIndex.ftl，与java类一样，只是首字母小写
+
+六、类的定义
+1. 类对象分为entity和dto，dto只出现在acton层，每个dto中必然会有对应的entity对象
+如，TeacherDto，会有一个属性 Teacher teacher;
+Entity用于和数据库对应，缓存中也只存entity，不会存dto，entity不做属性的扩展，要扩展的话，到Dto中。
+
+七、约定
+1. 每个Action的方法中，必须要加@ControllerInfo("修改部门，ID={deptId}")注解，并明确action的意思，如果有参数需要显示，则采用{}引入参数（URL中带的参数）
+2. 每个Entity对象，都应该要做持久化配置，每个属性都要加上注解ColumnInfo
+3. 页面可以采用通用的页面来展示表单
